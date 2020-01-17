@@ -1,5 +1,5 @@
 - unless field.multiple?
-  = form.select field.method_name, field.enum, { include_blank: true }.reverse_merge({ selected: field.form_value }), field.html_attributes.reverse_merge({ data: { enumeration: true }, placeholder: t('admin.misc.search') })
+  = form.select field.method_name, field.enum, { include_blank: true }.reverse_merge({ selected: field.form_value }), field.html_attributes.reverse_merge({ data: { enumeration: true }, placeholder: t('admin.misc.search') }) rescue raise Exception.new("Error when render: #{ { name: field.method_name, field: field } }")
 - else
   :ruby
     js_data = {
